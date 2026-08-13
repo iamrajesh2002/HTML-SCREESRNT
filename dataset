@@ -1,0 +1,635 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNQpSK76Xjzuwyy7s0W0KHY",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/iamrajesh2002/HTML-SCREESRNT/blob/main/dataset\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "collapsed": true,
+        "id": "tIlAMRQCNCTd",
+        "outputId": "59c036ea-977d-4968-9116-126c1debd4ca"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "     S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "df= pd.read_csv(\"/content/Book3.csv\")\n",
+        "print(df)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"pd.Dataframe()\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xJZaIykxOMfa",
+        "outputId": "bf46cdd9-ac2c-4f73-b86c-c906f9cceb15"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "pd.Dataframe()\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"df.head()\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pvVr1YmNPZSg",
+        "outputId": "ac3a0cb6-2196-40c6-8aa4-a15a1426d718"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "df.head()\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.tail)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_FRvwjZgPy0o",
+        "outputId": "47f19cc6-071a-480d-a0ee-8cbb89242765"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method NDFrame.tail of      S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.head)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wAAzwibhP853",
+        "outputId": "051434b5-d5a4-45c9-88eb-2bb6017b342a"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method NDFrame.head of      S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ltImhIfcQAom",
+        "outputId": "fd9b8e5d-8de1-4420-db70-e195fe5b979b"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "     S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.info)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SagjqNwqQDkt",
+        "outputId": "e6bd6d9b-8b9c-4e85-9305-c59250e7597a"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method DataFrame.info of      S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.columns)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aXZoCc04QH3a",
+        "outputId": "6493a6c4-138b-4d4a-f4ec-fc6f65f26efd"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Index(['S.No', 'Channel Name', 'Video Title', 'Publish Date', 'Duration',\n",
+            "       'Views', 'Likes', 'Comments', 'Subscribers', 'Total Channel Views',\n",
+            "       'Video URL', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14',\n",
+            "       'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18',\n",
+            "       'Unnamed: 19', 'Unnamed: 20'],\n",
+            "      dtype='object')\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.describe)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HVwCQdSmQNss",
+        "outputId": "235fbaee-7f27-4e61-8a12-2ba040ca0674"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method NDFrame.describe of      S.No             Channel Name                                Video Title  \\\n",
+            "0       1  Village Cooking Channel  SWEET CHURROS | Sugar Coated Crispy Snack   \n",
+            "1       2  Village Cooking Channel     MANGO JUICE | Fresh Mango Juice Making   \n",
+            "2       3  Village Cooking Channel                    200 Pounds BIG STINGRAY   \n",
+            "3       4  Village Cooking Channel                      CHICKEN MANDI BIRYANI   \n",
+            "4       5  Village Cooking Channel                          LADY FINGER CHIPS   \n",
+            "..    ...                      ...                                        ...   \n",
+            "415   414           Hema's Kitchen                               Potato Roast   \n",
+            "416   415           Hema's Kitchen                                  Veg Pulao   \n",
+            "417   416           Hema's Kitchen                                Gulab Jamun   \n",
+            "418   417           Hema's Kitchen                                Rava Kesari   \n",
+            "419   418           Hema's Kitchen                             Garlic Chicken   \n",
+            "\n",
+            "    Publish Date  Duration        Views     Likes Comments  Subscribers  \\\n",
+            "0     19-07-2026     22:18    22,21,778    50,400      912  3,07,00,000   \n",
+            "1     07-07-2026     18:42    29,93,879    67,497    1,251  3,07,00,000   \n",
+            "2     07-05-2026  26:14:00    10,46,335    42,694    1,132  3,07,00,000   \n",
+            "3     15-04-2026  28:36:00  1,04,63,599  1,53,206    2,612  3,07,00,000   \n",
+            "4     27-04-2026     20:18    51,64,077    89,118    1,617  3,07,00,000   \n",
+            "..           ...       ...          ...       ...      ...          ...   \n",
+            "415   20-06-2026     09:46     3,92,524    11,826      296    16,20,000   \n",
+            "416   18-06-2026     14:12     5,26,845    15,984      468    16,20,000   \n",
+            "417   16-06-2026     11:26     4,48,632    13,264      348    16,20,000   \n",
+            "418   14-06-2026     10:14     3,64,258    10,648      282    16,20,000   \n",
+            "419   12-06-2026     18:42     9,12,548    27,485      945    16,20,000   \n",
+            "\n",
+            "    Total Channel Views  ... Unnamed: 11  Unnamed: 12  Unnamed: 13  \\\n",
+            "0        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "1        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "2        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "3        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "4        9,93,00,00,000  ...         NaN          NaN          NaN   \n",
+            "..                  ...  ...         ...          ...          ...   \n",
+            "415        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "416        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "417        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "418        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "419        57,86,61,419  ...         NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 14  Unnamed: 15  Unnamed: 16  Unnamed: 17  Unnamed: 18  \\\n",
+            "0            NaN          NaN          NaN          NaN          NaN   \n",
+            "1            NaN          NaN          NaN          NaN          NaN   \n",
+            "2            NaN          NaN          NaN          NaN          NaN   \n",
+            "3            NaN          NaN          NaN          NaN          NaN   \n",
+            "4            NaN          NaN          NaN          NaN          NaN   \n",
+            "..           ...          ...          ...          ...          ...   \n",
+            "415          NaN          NaN          NaN          NaN          NaN   \n",
+            "416          NaN          NaN          NaN          NaN          NaN   \n",
+            "417          NaN          NaN          NaN          NaN          NaN   \n",
+            "418          NaN          NaN          NaN          NaN          NaN   \n",
+            "419          NaN          NaN          NaN          NaN          NaN   \n",
+            "\n",
+            "     Unnamed: 19  Unnamed: 20  \n",
+            "0            NaN          NaN  \n",
+            "1            NaN          NaN  \n",
+            "2            NaN          NaN  \n",
+            "3            NaN          6.0  \n",
+            "4            NaN          NaN  \n",
+            "..           ...          ...  \n",
+            "415          NaN          NaN  \n",
+            "416          NaN          NaN  \n",
+            "417          NaN          NaN  \n",
+            "418          NaN          NaN  \n",
+            "419          NaN          NaN  \n",
+            "\n",
+            "[420 rows x 21 columns]>\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
